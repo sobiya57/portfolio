@@ -3,97 +3,160 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Your Name — Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Sobiya Begum — Portfolio</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- typed.js CDN (used below) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#">Sobiya Begum</a>
-      <button id="menuBtn" class="menu-btn" aria-label="Open menu">☰</button>
-      <nav id="nav" class="nav">
-  <a href="#about">About</a>
-  <a href="#projects">Projects</a>
-  <a href="#skills">Skills</a>
-  <a href="#contact">Contact</a>
-</nav>
-</div>
-</header>
 
-<section id="projects">
-  <h2>Projects</h2>
+  <!-- Canvas background for moving gradient + particles -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
-  <div class="project">
-    <h3>Portfolio Website</h3>
-    <p>A personal website to showcase my projects and skills.</p>
-    <a href="portfolio-website/index.html" target="_blank" rel="noopener">View Project</a>
-  </div>
+  <!-- Page content above background -->
+  <div id="page">
 
-  <div class="project">
-    <h3>🌦️ Weather App</h3>
-    <p>A simple and responsive weather forecasting app that lets users:</p>
-    <ul>
-      <li>Search weather by city</li>
-      <li>Detect weather using current location</li>
-      <li>Toggle between Celsius & Fahrenheit</li>
-      <li>View 5-day forecast with icons</li>
-    </ul>
-    <a href="#" target="_blank" rel="noopener">View Project</a>
-  </div>
+    <!-- Header / Navbar -->
+    <header class="navbar container" role="banner" aria-label="Main header">
+      <div class="logo" aria-hidden="true">Sobiya Begum</div>
 
-  <div class="project">
-    <h3>📊 Student Performance Analysis</h3>
-    <p>A data analysis project focused on student performance dataset. The notebook explores how factors like study time, attendance, and extracurricular activities affect student grades.</p>
-    <ul>
-      <li>Explored dataset with Pandas & NumPy</li>
-      <li>Cleaned and transformed raw data</li>
-      <li>Visualized correlations using Seaborn & Matplotlib</li>
-      <li>Generated insights to understand factors influencing performance</li>
-    </ul>
-    <a href="#" target="_blank" rel="noopener">View Project</a>
-  </div>
-</section>
->
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+      <nav id="navLinks" class="nav-links" role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </nav>
-    </div>
-  
 
-    </section>
+      <button class="menu-toggle" aria-label="Toggle navigation menu" id="menuBtn">☰</button>
+    </header>
 
-    <section id="skills" class="section container">
-      <h2>Skills</h2>
-      <div class="chips">
-        <span>Python</span><span>Pandas</span><span>NumPy</span><span>SQL</span>
-        <span>Data Viz</span><span>HTML & CSS</span><span>Git</span>
-      </div>
-    </section>
-    
-    <section id="contact" class="section container">
-  <h2>Contact</h2>
-  <p>If you'd like to reach out:</p>
-  <p>
-    Portfolio: 
-    <a href="https://sobiya57.github.io/portfolio/" target="_blank">https://sobiya57.github.io/portfolio/</a>
-  </p>
-  <p>
-    GitHub: 
-    <a href="https://github.com/sobiya57" target="_blank">https://github.com/sobiya57</a>
-  </p>
-  <p>
-    LinkedIn: 
-    <a href="https://www.linkedin.com/in/sobiya-begum" target="_blank">https://www.linkedin.com/in/sobiya-begum</a>
-  </p>
-</section>
+    <!-- HERO: centered text + avatar below -->
+    <main>
+      <section id="about" class="hero container" aria-labelledby="about-heading">
+        <div class="hero-inner">
+          <div class="hero-text" id="about-heading">
+            <h1>Hi — I'm <span class="highlight">Sobiya Begum</span></h1>
+            <p class="role">I am a <span id="typed-text" aria-live="polite"></span></p>
+            <p class="subtext">Passionate about Python, SQL, Data Visualization, and building polished front-end experiences.</p>
 
-  <footer class="site-footer">
-    <div class="container">
-      <small>© <span id="year"></span> sobiya begum — Built with ❤️</small>
-    </div>
-  </footer>
+            <div class="hero-buttons" role="group" aria-label="Primary actions">
+              <a class="btn" href="#projects">View Projects</a>
+              <a class="btn outline" href="Sobiya_Begum_Resume.pdf" target="_blank" rel="noopener">View Resume</a>
+            </div>
+          </div>
 
-  <script src="script.js"></script>
+          <!-- Avatar centered below text -->
+          <div class="hero-avatar" aria-hidden="false">
+            <!-- Make sure file exists: images/avatar.png -->
+            <img src="images/avatar.png" alt="Portrait of Sobiya Begum" class="avatar" loading="eager">
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="section container" aria-labelledby="projects-heading">
+        <h2 id="projects-heading" class="section-title">Projects</h2>
+        <div class="projects-grid">
+
+          <article class="card" aria-labelledby="p1">
+            <img src="images/project-portfolio.png" alt="Screenshot of portfolio website" loading="lazy">
+            <h3 id="p1">Portfolio Website</h3>
+            <p class="project-tech">HTML · CSS · JS</p>
+            <p>Responsive portfolio that showcases projects, skills and contact information.</p>
+            <ul class="project-points">
+              <li>Responsive layout with animated background and accessible navigation</li>
+              <li>Typed roles + avatar + deployed to GitHub Pages / Netlify</li>
+            </ul>
+    <div class="links">
+  <a href="https://github.com/sobiya57/portfolio-website" target="_blank">Code</a> • 
+  <a href="https://sobiya57.github.io/portfolio/" target="_blank" class="btn-demo">🚀 Live Demo</a>
+</div>
+          </article>
+
+          <article class="card" aria-labelledby="p2">
+            <img src="images/project-weather.png" alt="Weather app screenshot" loading="lazy">
+            <h3 id="p2">Weather App</h3>
+            <p class="project-tech">JavaScript · API</p>
+            <p>Search weather by city with OpenWeather API.</p>
+            <ul class="project-points">
+              <li>API integration with clean UI</li>
+              <li>Mobile-friendly and accessible forms</li>
+            </ul>
+            <div class="links">
+  <a href="https://github.com/sobiya57/weather-app" target="_blank">Code</a> • 
+  <a href="https://sobiya-weather-app.netlify.app" target="_blank" class="btn-demo">🚀 Live Demo</a>
+</div>
+          </article>
+
+          <article class="card" aria-labelledby="p3">
+            <img src="images/project-student.png" alt="Student performance charts" loading="lazy">
+            <h3 id="p3">Student Performance Analysis</h3>
+            <p class="project-tech">Python · Pandas · Seaborn</p>
+            <p>Data cleaning, exploratory analysis, and visualizations to identify performance drivers.</p>
+            <ul class="project-points">
+              <li>Used Pandas for cleaning & transformations</li>
+              <li>Created visual reports with Seaborn and Matplotlib</li>
+            </ul>
+          <div class="links">
+  <a href="https://github.com/sobiya57/student-performance-analysis" target="_blank">Notebook</a> • 
+  <a href="https://github.com/sobiya57/student-performance-analysis" target="_blank">Code</a> • 
+  <a href="https://student-performance-sobiya.netlify.app" target="_blank" class="btn-demo">🚀 Live Demo</a>
+</div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="section container" aria-labelledby="skills-heading">
+        <h2 id="skills-heading" class="section-title">Skills</h2>
+        <div class="skills-grid" role="list">
+          <span role="listitem" class="skill-chip">Python</span>
+          <span role="listitem" class="skill-chip">Pandas</span>
+          <span role="listitem" class="skill-chip">NumPy</span>
+          <span role="listitem" class="skill-chip">SQL</span>
+          <span role="listitem" class="skill-chip">Matplotlib</span>
+          <span role="listitem" class="skill-chip">Seaborn</span>
+          <span role="listitem" class="skill-chip">HTML</span>
+          <span role="listitem" class="skill-chip">CSS</span>
+          <span role="listitem" class="skill-chip">JavaScript</span>
+          <span role="listitem" class="skill-chip">Git/GitHub</span>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section container" aria-labelledby="contact-heading">
+        <h2 id="contact-heading" class="section-title">Contact</h2>
+        <p class="small">Email: <a href="mailto:sobiyabegumbegum@gmail.com">sobiyabegumbegum@gmail.com</a></p>
+        <p class="small">GitHub: <a href="https://github.com/sobiya57" target="_blank" rel="noopener">github.com/sobiya57</a> • LinkedIn: <a href="https://www.linkedin.com/in/sobiya-begum" target="_blank" rel="noopener">linkedin.com/in/sobiya-begum</a></p>
+
+        <!-- simple contact form using FormSubmit (optional) -->
+        <form class="contact-form" action="https://formsubmit.co/sobiyabegumbegum@gmail.com" method="POST" target="_blank" aria-label="Contact form">
+          <input type="hidden" name="_captcha" value="false">
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Your name" required aria-label="Your name">
+            <input type="email" name="email" placeholder="Your email" required aria-label="Your email">
+          </div>
+          <textarea name="message" rows="5" placeholder="Message" required aria-label="Message"></textarea>
+          <button class="btn contact-btn" type="submit">Send Message</button>
+        </form>
+      </section>
+
+      <footer class="footer container" role="contentinfo">
+        <small>© <span id="year"></span> Sobiya Begum — Built with ❤️</small>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Local script (includes typed init and canvas BG) -->
+  <script src="script.js" defer></script>
 </body>
 </html>
